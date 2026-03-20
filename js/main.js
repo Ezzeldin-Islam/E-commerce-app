@@ -139,7 +139,7 @@ if (arrowRight) {
 }
 
 if (landingPage) {
-  autoChangeBackground(landingPage, currentIndex);
+  autoChangeBackground(landingPage);
 }
 
 //*  add bestsellers in home page
@@ -373,7 +373,7 @@ function filterProducts(products) {
 }
 
 function changeBackground(landingPage, currentIndex) {
-  landingPage.style.backgroundImage = `url(./${images[currentIndex]})`;
+  landingPage.style.backgroundImage = `url(${images[currentIndex]})`;
 }
 
 function calcNumOfProducts() {
@@ -392,7 +392,7 @@ function calcNumOfProducts() {
   }
 }
 
-function autoChangeBackground(landingPage, currentIndex) {
+function autoChangeBackground(landingPage) {
   setInterval(() => {
     currentIndex++;
     if (currentIndex >= images.length) {
