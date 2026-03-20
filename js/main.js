@@ -373,7 +373,7 @@ function filterProducts(products) {
 }
 
 function changeBackground(landingPage, currentIndex) {
-  landingPage.style.backgroundImage = `url(${images[currentIndex]})`;
+  landingPage.style.backgroundImage = `url(./${images[currentIndex]})`;
 }
 
 function calcNumOfProducts() {
