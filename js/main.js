@@ -113,8 +113,8 @@ let arrowRight = document.querySelector(
 );
 
 let images = [
-  "../imgs/home-page/shop-hero-1-product-slide-1.png",
-  "../imgs/home-page/landing-3.png",
+  "./imgs/home-page/shop-hero-1-product-slide-1.png",
+  "./imgs/home-page/landing-3.png",
 ];
 
 let currentIndex = 0;
