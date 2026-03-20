@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="fontawesome-free-7.1.0-web/css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+
+    <div class="scroll-top"><i class="fa-solid fa-chevron-up"></i></div>
+
+    <!-- Shopping Cart Section -->
+    <div class="shopping-cart-container">
+      <div class="container">
+        <div class="cart-empty" style="display: none;">
+          <div class="empty-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+          <h3>Your cart is empty</h3>
+          <p>Add some products to get started!</p>
+          <a href="shop.html"><button class="btn continue-shopping">Continue
+              Shopping</button></a>
+        </div>
+      </div>
+
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.12.0/headroom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+
+  </body>
+</html>
+
+<!-- <div class="cart-empty" style="display: none;">
+          <div class="empty-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+          <h3>Your cart is empty</h3>
+          <p>Add some products to get started!</p>
+          <button class="btn continue-shopping">Continue Shopping</button>
+        </div> -->
+
+<!-- <div class="cart-summary">
+
+          <div class="summary-details">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span class="summary-value">$4,036.33</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span class="summary-value free">Free</span>
+            </div>
+
+            <div class="summary-divider"></div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span class="summary-value">$3,632.70</span>
+            </div>
+          </div>
+
+          <div class="cart-actions-buttons">
+            <button class="btn btn-secondary continue-shopping">
+              <i class="fa-solid fa-arrow-left"></i>
+              Continue Shopping
+            </button>
+            <button class="btn btn-primary checkout">
+              Proceed to Checkout
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <div class="secure-checkout">
+            <i class="fa-solid fa-lock"></i>
+            <span>Secure Checkout</span>
+          </div>
+        </div> -->
+<!-- 
+
+
+
+
+<div class="cart-item">
+            <div class="item-image">
+              <img src="imgs/shop-page/products/product-cover-2.png"
+                alt="Product">
+              <span class="item-badge">New</span>
+            </div>
+            <div class="item-details">
+              <h3 class="item-name">Graphic Design Course</h3>
+              <p class="item-description">Premium quality design course</p>
+              <div class="item-meta">
+                <span class="item-color">
+                  <span class="color-dot"
+                    style="background-color: #23a6f0;"></span>
+                  Blue
+                </span>
+              </div>
+              <div class="item-price">
+                <span class="old-price">$899.00</span>
+                <span class="new-price">$699.00</span>
+              </div>
+            </div>
+            <div class="item-actions">
+              <button class="remove-item" title="Remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <div class="quantity-control">
+                <button class="qty-btn minus">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <input type="number" value="1" min="1" max="99"
+                  class="qty-input" readonly>
+                <button class="qty-btn plus">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-item">
+            <div class="item-image">
+              <img src="imgs/shop-page/products/product-cover-3.png"
+                alt="Product">
+              <span class="item-badge sale">Sale</span>
+            </div>
+            <div class="item-details">
+              <h3 class="item-name">UI/UX Design Bundle</h3>
+              <p class="item-description">Complete design toolkit</p>
+              <div class="item-meta">
+                <span class="item-color">
+                  <span class="color-dot"
+                    style="background-color: #23856D;"></span>
+                  Green
+                </span>
+
+              </div>
+              <div class="item-price">
+                <span class="old-price">$899.00</span>
+                <span class="new-price">$699.00</span>
+              </div>
+            </div>
+            <div class="item-actions">
+              <button class="remove-item" title="Remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <div class="quantity-control">
+                <button class="qty-btn minus">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <input type="number" value="2" min="1" max="99"
+                  class="qty-input" readonly>
+                <button class="qty-btn plus">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-item">
+            <div class="item-image">
+              <img src="imgs/shop-page/products/product-cover-4.png"
+                alt="Product">
+              <span class="item-badge sale">Sale</span>
+            </div>
+            <div class="item-details">
+              <h3 class="item-name">Web Development Pro</h3>
+              <p class="item-description">Advanced web development</p>
+              <div class="item-meta">
+                <span class="item-color">
+                  <span class="color-dot"
+                    style="background-color: #E77C40;"></span>
+                  Orange
+                </span>
+              </div>
+              <div class="item-price">
+                <span class="old-price">$899.00</span>
+                <span class="new-price">$699.00</span>
+              </div>
+            </div>
+            <div class="item-actions">
+              <button class="remove-item" title="Remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <div class="quantity-control">
+                <button class="qty-btn minus">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <input type="number" value="1" min="1" max="99"
+                  class="qty-input" readonly>
+                <button class="qty-btn plus">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+-->
