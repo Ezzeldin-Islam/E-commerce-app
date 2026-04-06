@@ -1,85 +1,112 @@
-let firstNameInput = document.querySelector("#first-name");
-let lastNameInput = document.querySelector("#last-name");
-let emailInput = document.querySelector("#email");
-let passwordInput = document.querySelector("#password");
-let confirmPasswordInput = document.querySelector("#confirm-password");
-let submit = document.querySelector(".submit");
-let emailLable = document.querySelector(".form label #email + span");
-let passwordLable = document.querySelector(".form label #password + span");
-let confirmPasswordLable = document.querySelector(
-  ".form label #confirm-password + span",
-);
+const form = document.getElementById("registration-form");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
 
-passwordInput.style.userSelect = "none";
-confirmPasswordInput.style.userSelect = "none";
-
-let passwordReg =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()_+\-=\[\]{};:'",.<>\/\\|`~])[A-Za-z\d@$!%*?&#^()_+\-=\[\]{};:'",.<>\/\\|`~]{8,}$/;
-let emailReg =
-  /^[a-zA-Z0-9][a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]*[a-zA-Z0-9]@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
-
-emailInput.addEventListener("keyup", () => {
-  if (emailReg.test(emailInput.value)) {
-    emailLable.style.color = "green";
-  } else {
-    emailLable.style.color = "red";
-  }
-});
-passwordInput.addEventListener("keyup", () => {
-  if (passwordReg.test(passwordInput.value)) {
-    passwordLable.style.color = "green";
-  } else {
-    passwordLable.style.color = "red";
-  }
-});
-confirmPasswordInput.addEventListener("keyup", () => {
-  if (confirmPasswordInput.value.trim() !== "") {
-    if (confirmPasswordInput.value === passwordInput.value) {
-      confirmPasswordLable.style.color = "green";
-    } else {
-      confirmPasswordLable.style.color = "red";
-    }
-  }
-});
-
-submit.addEventListener("click", (e) => {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
-  if (
-    passwordReg.test(passwordInput.value) &&
-    confirmPasswordInput.value === passwordInput.value &&
-    emailReg.test(emailInput.value) &&
-    firstNameInput.value.trim() !== "" &&
-    lastNameInput.value.trim() !== ""
-  ) {
+
+  const isRequiredValid = checkRequired([
+    username,
+    email,
+    password,
+    confirmPassword,
+  ]);
+
+  let isFormValid = isRequiredValid;
+
+  if (isRequiredValid) {
+    const isUsernameValid = checkLength(username, 3, 15);
+    const isEmailValid = checkEmail(email);
+    const isPasswordValid = checkLength(password, 6, 25);
+    const isPasswordsMatch = checkPasswordsMatch(password, confirmPassword);
+
+    isFormValid =
+      isUsernameValid && isEmailValid && isPasswordValid && isPasswordsMatch;
+  }
+
+  if (isFormValid) {
     Swal.fire({
-      title: "congrates!",
-      text: "you have registered successfully and you can login now.",
+      position: "top-end",
       icon: "success",
+      title: "Registration successful!",
+      showConfirmButton: false,
+      timer: 1500,
     });
-
-    let userInformation = {
-      firstName: firstNameInput.value,
-      lastName: lastNameInput.value,
-      email: emailInput.value,
-      password: passwordInput.value,
-    };
-
-    firstNameInput.value = "";
-    lastNameInput.value = "";
-    emailInput.value = "";
-    passwordInput.value = "";
-    confirmPasswordInput.value = "";
-
-    emailLable.style.color = "rgba(255, 255, 255, 0.5)";
-    passwordLable.style.color = "rgba(255, 255, 255, 0.5)";
-    confirmPasswordLable.style.color = "rgba(255, 255, 255, 0.5)";
-
-    console.log("userInformation", userInformation);
-  } else {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "please fill the form correctly and don't leave any field empty.",
+    form.reset();
+    document.querySelectorAll(".form-group").forEach((group) => {
+      group.className = "form-group";
     });
   }
 });
+
+function checkPasswordsMatch(input1, input2) {
+  if (input1.value !== input2.value) {
+    showError(input2, "Passwords do not match");
+    return false;
+  }
+  return true;
+}
+
+function checkEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (emailRegex.test(email.value.trim())) {
+    showSuccess(email);
+    return true;
+  } else {
+    showError(email, "Email is not valid");
+    return false;
+  }
+}
+
+function checkLength(input, min, max) {
+  if (input.value.length < min) {
+    showError(
+      input,
+      `${formatFieldName(input)} must be at least ${min} characters.`,
+    );
+    return false;
+  } else if (input.value.length > max) {
+    showError(
+      input,
+      `${formatFieldName(input)} must be less than ${max} characters.`,
+    );
+    return false;
+  } else {
+    showSuccess(input);
+    return true;
+  }
+}
+
+function checkRequired(inputArray) {
+  let isValid = true;
+
+  inputArray.forEach((input) => {
+    if (input.value.trim() === "") {
+      showError(input, `${formatFieldName(input)} is required`);
+      isValid = false;
+    } else {
+      showSuccess(input);
+    }
+  });
+
+  return isValid;
+}
+
+function formatFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+function showError(input, message) {
+  const formGroup = input.parentElement;
+  formGroup.className = "form-group error";
+  const small = formGroup.querySelector("small");
+  small.innerText = message;
+}
+
+function showSuccess(input) {
+  const formGroup = input.parentElement;
+  formGroup.className = "form-group success";
+}

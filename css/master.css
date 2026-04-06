@@ -4305,7 +4305,95 @@ footer .final {
 /* ==================== e pricing ==================== */
 
 /* ==================== s register page ==================== */
-.log-in-row :is(.log-in:nth-child(1), .register).active,
+
+.register-container {
+  margin-top: 200px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  overflow: hidden;
+
+  h1 {
+    text-transform: capitalize;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+
+    &.error input {
+      border-color: #e74c3c;
+    }
+
+    &.success input {
+      border-color: #2ecc71;
+    }
+
+    &.error small {
+      visibility: visible;
+      color: #e74c3c;
+    }
+  }
+
+  label {
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+  }
+
+  input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+
+  small {
+    text-transform: capitalize;
+    visibility: hidden;
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    font-size: 12px;
+  }
+
+  button {
+    text-transform: capitalize;
+    cursor: pointer;
+    background: #3498db;
+    border: none;
+    color: white;
+    display: block;
+    font-size: 1rem;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #2980b9;
+  }
+}
+
+/* .log-in-row :is(.log-in:nth-child(1), .register).active,
 .log-in-row :is(.log-in:nth-child(1), .register):hover {
   background-color: #eee;
   border-radius: 10px;
@@ -4466,7 +4554,7 @@ footer .final {
       opacity: 0;
     }
   }
-}
+} */
 
 /* ==================== e register page ==================== */
 

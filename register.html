@@ -16,10 +16,88 @@
           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
         </div></div>
     </div>
+
     <div class="scroll-top" title="Scroll to top"><i
         class="fa-solid fa-chevron-up"></i></div>
 
-    <div class="register-page">
+    <header class="header">
+      <div class="container">
+        <nav>
+          <h1 class="logo"><a href="index.html"
+              title="Bandage Home Page">Bandage</a></h1>
+
+          <div class="menu-toggle" title="Toggle Navigation Menu">
+            <i class="fas fa-bars"></i>
+          </div>
+
+          <ul class="header-links">
+            <li><a href="index.html"
+                title="Go to Home Page">home</a></li>
+            <li><a href="shop.html" title="View Shop Page">shop</a></li>
+            <li><a href="about.html" title="About Us">about</a></li>
+            <li><a href="blog.html" title="View Blog">blog</a></li>
+            <li><a href="contact.html" title="Contact Us">contact</a></li>
+            <li><a href="pricing.html" title="View Pricing">pricing</a></li>
+          </ul>
+
+          <div class="log-in-row">
+            <a href="#" class="log-in" title="Log in to your account">
+              <i class="fa-regular fa-user icon"></i>
+              log in
+            </a>
+            <span style="color: #23a6f0;">/</span>
+            <a href="#" class="log-in register active"
+              title="Register new account">register</a>
+            <a href="#" class="search" title="Search products">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <a href="cart.html" class="shop" title="View Shopping Cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <div class="count"></div>
+            </a>
+            <a href="loved.html" class="love" title="View Wishlist">
+              <i class="fa-regular fa-heart"></i>
+              <div class="count"></div>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container register-container">
+      <form id="registration-form">
+        <h1>Register</h1>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" />
+          <small></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter email" />
+          <small></small>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" />
+          <small></small>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword"
+            placeholder="Confirm Password" />
+          <small></small>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <!-- <div class="register-page">
       <header class="header">
         <div class="container">
           <nav>
@@ -184,7 +262,7 @@
           </div>
         </div>
       </footer>
-    </div>
+    </div> -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.12.0/headroom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
